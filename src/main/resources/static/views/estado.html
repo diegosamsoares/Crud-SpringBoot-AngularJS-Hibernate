@@ -1,0 +1,34 @@
+
+<div ng-controller="estadoController">
+
+{{estado.nome}}<br/>
+<input type="text" ng-model="estado.nome"/>
+
+<input type="button" value="Salvar" ng-click="salvarEstados()"/>
+<input type="button"  value="Cancelar" ng-click="cancelarEstados()"/>
+
+
+
+
+<table border=1px >
+<tr>
+<td>Index</td>
+<td>Nome</td>
+<td>Remocao</td>
+<td>Alteracao</td>
+</tr>
+<tr ng-repeat="est in Estados | orderBy:'nome'">
+<td width=100>{{$index}}</td>
+<td width=200>{{est.nome}} </td>
+<td width=100><input type="button"  value="Remover" ng-click="removerEstados(est)"/></td>
+<td width=100><input type="button"  value="Alterar" ng-click="removerEstados(est)"/></td>
+
+</tr>
+
+</table>
+
+
+
+
+
+</div>

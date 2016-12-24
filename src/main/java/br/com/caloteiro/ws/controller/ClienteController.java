@@ -22,19 +22,14 @@ import br.com.caloteiro.ws.service.ClienteService;
 public class ClienteController {
 
 	// negocios
-	@Autowired
+	@Autowired//injeção de dependencia
  ClienteService clienteService;
 
 	// EndPoints
 
 	@RequestMapping(method = RequestMethod.POST, value = "/clientes", consumes = MediaType.APPLICATION_JSON_VALUE)
 	// mapeamento usand o metodo POST , CONSUMINDO UM JSON
-	public ResponseEntity<Cliente> cadastrarCliente(@RequestBody Cliente cliente) {// notação
-																					// @RequestBody
-																					// para
-																					// consumir
-																					// o
-																					// json
+	public ResponseEntity<Cliente> cadastrarCliente(@RequestBody Cliente cliente) {
 		Cliente clientesalvo = clienteService.cadastrar(cliente);
 
 		return new ResponseEntity<Cliente>(clientesalvo, HttpStatus.CREATED);
